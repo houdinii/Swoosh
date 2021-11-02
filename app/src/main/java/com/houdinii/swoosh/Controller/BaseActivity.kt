@@ -1,4 +1,4 @@
-package com.houdinii.swoosh
+package com.houdinii.swoosh.Controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

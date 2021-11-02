@@ -1,9 +1,9 @@
-package com.houdinii.swoosh
+package com.houdinii.swoosh.Controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.houdinii.swoosh.R
 import com.houdinii.swoosh.databinding.ActivityWelcomeBinding
 
 private lateinit var binding: ActivityWelcomeBinding
