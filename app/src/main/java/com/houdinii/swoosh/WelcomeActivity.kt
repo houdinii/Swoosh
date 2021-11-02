@@ -8,7 +8,7 @@ import com.houdinii.swoosh.databinding.ActivityWelcomeBinding
 
 private lateinit var binding: ActivityWelcomeBinding
 
-class WelcomeActivity : AppCompatActivity() {
+class WelcomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryDark)
