@@ -3,14 +3,16 @@ package com.houdinii.swoosh.Controller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.houdinii.swoosh.Model.Player
 import com.houdinii.swoosh.R
-import com.houdinii.swoosh.Utilities.EXTRA_LEAGUE
-import com.houdinii.swoosh.Utilities.EXTRA_SKILL
+import com.houdinii.swoosh.Utilities.EXTRA_PLAYER
 import com.houdinii.swoosh.databinding.ActivityFinishBinding
 
 private lateinit var binding: ActivityFinishBinding
 
 class FinishActivity : AppCompatActivity() {
+    private var player : Player? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryDark)
@@ -18,10 +20,9 @@ class FinishActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val league = intent.getStringExtra(EXTRA_LEAGUE).toString()
-        val skill = intent.getStringExtra(EXTRA_SKILL).toString()
+        player = intent.getParcelableExtra(EXTRA_PLAYER)
 
-        val searchLeaguesTextStr = "Looking for $league $skill league near you..."
+        val searchLeaguesTextStr = "Looking for ${player?.league} ${player?.skill} league near you..."
         binding.searchLeaguesText.text = searchLeaguesTextStr
     }
 }

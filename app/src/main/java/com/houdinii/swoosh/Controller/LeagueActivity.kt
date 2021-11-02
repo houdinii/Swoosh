@@ -5,14 +5,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.houdinii.swoosh.Utilities.EXTRA_LEAGUE
+import com.houdinii.swoosh.Model.Player
 import com.houdinii.swoosh.R
+import com.houdinii.swoosh.Utilities.EXTRA_PLAYER
 import com.houdinii.swoosh.databinding.ActivityLeagueBinding
 
 private lateinit var binding: ActivityLeagueBinding
 
 class LeagueActivity : BaseActivity() {
-    var selectedLeague = ""
+    private var player = Player("", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +25,9 @@ class LeagueActivity : BaseActivity() {
 
     fun leagueNextClicked(view: View){
         println(view)
-        if(selectedLeague != ""){
+        if(player.league != ""){
             val skillActivity = Intent(this, SkillActivity::class.java)
-            skillActivity.putExtra(EXTRA_LEAGUE, selectedLeague)
+            skillActivity.putExtra(EXTRA_PLAYER, player)
             startActivity(skillActivity)
         } else {
             Toast.makeText(this, "Please select a league.", Toast.LENGTH_SHORT).show()
@@ -38,7 +39,7 @@ class LeagueActivity : BaseActivity() {
         binding.womensLeagueBtn.isChecked = false
         binding.coedLeagueBtn.isChecked = false
         binding.mensLeagueBtn.isChecked = true
-        selectedLeague = "mens"
+        player.league = "mens"
     }
 
     fun onWomensClicked(view: View){
@@ -46,7 +47,7 @@ class LeagueActivity : BaseActivity() {
         binding.coedLeagueBtn.isChecked = false
         binding.mensLeagueBtn.isChecked = false
         binding.womensLeagueBtn.isChecked = true
-        selectedLeague = "womens"
+        player.league = "womens"
     }
 
     fun onCoedClicked(view: View){
@@ -54,6 +55,6 @@ class LeagueActivity : BaseActivity() {
         binding.womensLeagueBtn.isChecked = false
         binding.mensLeagueBtn.isChecked = false
         binding.coedLeagueBtn.isChecked = true
-        selectedLeague = "co-ed"
+        player.league = "co-ed"
     }
 }
